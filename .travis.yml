@@ -1,8 +1,10 @@
 language: go
 go:
   - 1.11.x
+env:
+  - GO111MODULE=on
 script:
-  - cd /src && CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o goapp main.go
+  - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o goapp src/main.go
 deploy:
   provider: script
   script: bash docker_push
