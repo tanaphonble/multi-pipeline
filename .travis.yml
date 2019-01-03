@@ -1,8 +1,7 @@
 script:
-  - docker build -f Dockerfile -t $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER
+- docker build -f Dockerfile -t $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER .
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+- docker push $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER
 notifications:
   slack:
-    rooms:
-      - secure: "$SLACK_SECURE_KEY"
+    secure: E77sMtgCaKHikNYJyvSR+pyFYSRGMNP1YIvX1QujHhunyfOe4H8rvzENqRXcV+ZtP1bJcwW/as3fU1O+rQCc/w0PR+91sXQduSQn5Dg5kfpfoxNH4pz/CE94+ca8aLXdOM5zyiXD5cJ8IYuqBwOoFIxCZF96IeCE5eePQ83j7j+jVgjjUucYnRB2UGrjSRrnzNM9xoK/ry8GX86CH6LabFSGtWfdoudkBzfWdDDlhR5A+kB/WzkPhBkLtMVmXexh+a3u5fUfsi7dXjIe6Ft5Mzt+3TGPb/huMJKMsVO377KUQ+G9ruAATNa8WX4+LWdShn+VDtYEBy9snX6iJKUNZFlq9URHCeno+yBkx/heHZ8XkEF15+DbH4zq+vkJW/WfPvInPwvbMoZXdXk0jDCAtfbcjWeya85xMRKje8LBV9ykrbVSlmM+x9tzssKMlzw6FWL7ckqYe8JVk1IBebkYgEkoWEzreNt/3DcAjKPIHA4g426Z1p0v8ZNm/Nxf7Gwu3ylDOyQiig6L2xVuYSzNbRXpvdAnIp/g9EbDaDtbgtP8p0BtcnRjeo6zOlmoXPsK/8hMpEqqHtWd7fMPazZMKo9YJfoNYqpv7hqaBcAC+59yLl4GO5IJ8J+jFd/Gct+urDbW1UitCB83Ix+rd2qgi3QfiUxbQRBHFjywc3fd/Vo=
