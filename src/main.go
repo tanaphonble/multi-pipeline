@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	fmt.Println("app v3.0")
+	fmt.Println("app v3.1")
 
 	r := gin.Default()
 	r.GET("/ping", pong)
