@@ -4,4 +4,4 @@ script:
   - docker push $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER
 
 notifications:
-  slack: ble-talk:LltgxM527k2HMkmUJCcjGyb8
+  slack: ble-talk:$SLACK_INTEGRATION_KEY
