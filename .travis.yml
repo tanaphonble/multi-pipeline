@@ -5,6 +5,4 @@ env:
   - GO111MODULE=on
 script:
   - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o goapp src/main.go
-deploy:
-  provider: script
-  script: bash docker_push
+  - bash docker_push
