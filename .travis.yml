@@ -2,6 +2,7 @@ script:
   - docker build -f Dockerfile -t $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER
-
 notifications:
-  slack: ble-talk:$SLACK_INTEGRATION_KEY
+  slack:
+    rooms:
+      - secure: "$SLACK_SECURE_KEY"
