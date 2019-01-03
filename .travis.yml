@@ -2,3 +2,7 @@ script:
   - docker build -f Dockerfile -t $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER
+
+notifications:
+  email: 
+    - a.tanaphon@gmail.com
