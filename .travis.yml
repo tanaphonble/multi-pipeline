@@ -5,4 +5,5 @@ env:
   - GO111MODULE=on
 script:
   - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o goapp src/main.go
-  - bash docker_push
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push tanaphonble/goapp:$TRAVIS_BUILD_NUMBER
