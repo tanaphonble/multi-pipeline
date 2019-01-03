@@ -9,8 +9,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git branch: 'master'
-            url: 'https://github.com/tanaphonble/multi-pipeline.git'
+        git([branch: 'master', url: 'https://github.com/tanaphonble/multi-pipeline.git'])
       }
     }
     stage('Build Image') {
