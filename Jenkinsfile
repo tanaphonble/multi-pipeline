@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git clone 'git@github.com:tanaphonble/multi-pipeline.git'
+        git 'git@github.com:tanaphonble/multi-pipeline.git'
       }
     }
     stage('Build Image') {
