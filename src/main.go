@@ -7,8 +7,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const appVersion = "v11.0"
+
 func main() {
-	fmt.Println("app v10.0")
+	fmt.Println("app ", appVersion)
 
 	r := gin.Default()
 	r.GET("/ping", pong)
@@ -18,5 +20,6 @@ func main() {
 func pong(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "pong",
+		"version": appVersion,
 	})
 }
