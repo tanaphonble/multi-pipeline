@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const appVersion = "v11.0"
+const appVersion = "v12.0"
 
 func main() {
 	fmt.Println("app ", appVersion)
