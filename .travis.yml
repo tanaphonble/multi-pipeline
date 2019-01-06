@@ -14,7 +14,7 @@ script:
   - docker build -f Dockerfile -t $DOCKER_HUB_USERNAME/goapp:latest .
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
   - docker push $DOCKER_HUB_USERNAME/goapp:$TRAVIS_BUILD_NUMBER
-  - docker push $DOCKER_HUB_USERNAME/goapp:$latest
+  - docker push $DOCKER_HUB_USERNAME/goapp:latest
 deploy:
   provider: script
   skip_cleanup: true
