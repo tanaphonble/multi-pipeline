@@ -1,12 +1,14 @@
 services: docker
-
 script:
-  - docker build -f Dockerfile -t $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push $DOCKER_USERNAME/goapp:$TRAVIS_BUILD_NUMBER
+- docker build -f Dockerfile -t $DOCKER_HUB_USERNAME/goapp:$TRAVIS_BUILD_NUMBER .
+- echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_USERNAME" --password-stdin
+- docker push $DOCKER_HUB_USERNAME/goapp:$TRAVIS_BUILD_NUMBER
 notifications:
   slack: ble-talk:3HR1WPriYhoRslLaaRISQqBR#build-status
-
-branches:
+branches: 
   only:
-    - release
+  - release
+env:
+  global:
+  - secure: tJ1VzZn8gvXlt+HkkaA4Pq4s/GAVQ56DHVze9gLgGrSqVntHmjbDeW/NoSN4R+kHDRtDJZUncaiV0n4Ij+hSzQ7jXxBrB4oAMBmqDBslPrJcd0Adt+kATg7j3TyTvYuCgHhwDsjW7yHNaNMw2jB1hkx3Zf3Sohx3fhjv9PHg961Fgq7s00YWcinGhh0wm9TCL/nimyLZU96SvEgqm0ulG1kaaZiqerqLJSLXR7ganzxFMqACn2+LEa9KS2sU4mehtMtc55rNeUw3nU/dIF/Km6nIVjMq0bTqFb/cV97GOoIKKn2MzmCCz0CXJjRIQdwo6WpVZPQwykAEgtqbPfsjAr1NCkFYK7lPwT1pE43avDZJapJifWUtK3z7Rak8dSO05etOcgZHhumXTTiSjsB7A8h26gC33xzAV9hYXXnUTgrFiuKQX9OraAPwNPHMeF7No1+BU/5TKmJW8i/u79VXZz4cKIAP4gEdNgNP28muV2SRUZQcIZd8ge/82MgH4FxhUeO/oBXbzKQh7rf4fXWOhaV2qc89IL6mnh5IauIYYmHUCBnDOnNe4WUbZe15cZ/wZQp5Tq7oLrj7d55zThx095oL01zO4MxN8Wdn55XFDYiKvXF8KllXeVKd0S1dJ6pfembx3FqfAGd0wBU0drqQrtU4u/06xC7Scntjnuw5hgo=
+  - secure: M90s770xxOn8fGEDZvEJxlZVLO0tQFq1GfpEeAcgF1tZmBGj5mk3S/gbJu+16Przd2+BAL2v1tI6XcqV2EMVsMmUmZsCK1DlPv+LcTmQQR/y33OWQGMyvFVSsOUluBgz+l73LxUYzBtYEZQeUW4Wf95NkT0+tTeNeYGgktYneMZK2UIAlaPW2eU+7JbFIKDLc2pFEWrxd5f0qJijKVG8aHJW1/2oDg4/w7eW+TRRGF08W8Ypxa8s/cvwMHf6vzq4fNb5jOKpSozw1iPOKFR3WtBZxtXOmlye9jbgWpjz7tkLudvbPa4kU3sg15B1EnCdoZ+ED9hYmigcsRjNq6zr5NkZCCnbYZHHNpUFFpqIEnKj820tAsnivJ7XBv4Fpi8GrUdz+oVYa5ig6hJ+wj2DC7rHqufR/KxO4wI4SMq/Gxrd9sDDPid7I6BbmBlnGN8tZ6ghn2peC3XzpHHXEMafMizRex9pgWFGHYrjORgqaJH8Wrsm3anrOA0uiPKRmBuT1Mii0X5ZyFva4O+CpRoCccyGquJsqWbXoBzTXt3pPKFrDBT7Kagj/RnOUrrmjsKQoKia8FPwxCLuy1o01Eg6N7JgeSKPHwarFpqCodaeSF7S1oLA1K4r1iD5i8ya1nD5v9mlm2TZX4OTEc7t43aTBjzVxidwzTXCiRKIhD9ltIQ=
