@@ -17,7 +17,7 @@ script:
 deploy:
   provider: script
   skip_cleanup: true
-  script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no -i cicd@54.169.243.211 './deploy.sh'
+  script: chmod 600 deploy_key && ssh -o StrictHostKeyChecking=no -i ./deploy_key cicd@54.169.243.211 './deploy.sh'
   on:
     branch: release
 notifications:
