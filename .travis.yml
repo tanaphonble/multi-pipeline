@@ -30,5 +30,6 @@ notifications:
     template:
       - Repo `%{repository_slug}` *%{result}* build (<%{build_url}|#%{build_number}>)
         for commit (<%{compare_url}|%{commit}>) on branch `%{branch}`.
+      - Commit message commit_message *$%{commit_message}*
       - 'Execution time: *%{duration}*'
       - 'Message: %{message}'
