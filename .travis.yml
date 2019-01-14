@@ -24,4 +24,12 @@ deploy:
   on:
     branch: release
 notifications:
-  slack: ble-talk:3HR1WPriYhoRslLaaRISQqBR#build-status
+  slack:
+    rooms:
+      - secure: R9QIrhx3bguvvUXO5CQzb+6nOrkfyy6WC1pJDAPStq8LUnGSj1CkWpr9rOmSksNmVhobcXd8fPDpHqXLaBsn6q4kIZYqkk6eQvtWjohcXPi+7upurjp6JLhFeY/5DH3RC+StKR5s0RFHdGCIjRPvfCh1R36tVQZnRehKhGUHIsjvNw2snHEFegrZl9St8n4RhVIQwOmwOgtLUexkkwnsFrhjBuMWkZ9KQ5Pan5qtDbWTEDzj9CQTgtIv7h+vDhCqEA7LEGBiAESo22m3CKq4OLKzow36KDis4eZ6geLVuN9DweH2DyYSFfMjcHl7xE6d6HcL+/QATRht55bA5lmZWZ9m/M93SHD1CYiyEF45YFcFzZDB9QwdNjXek0xBj2mVHfR8iAvt29w7oSc6y/XxPxr/Balz0mdMTB21QHhiX5Q5fmH7Z3ggOv47f3KQlFDrQAizDSmkMl0izTxb5T06DZNdeIonoYyyUs/lJd7bbA/se4WKZpNNeYeCDlqiN0ySJFcPZxjKqVpthLxC1xJUn0CwQRguhvTZfPrp61p7962gCaAb/7rSK8Ht7PxBHze/CPYU4NgI1dD8zMgD1In2a2Ea3vMBSbMpT3RUsy0/jqxKP4HdQen7X5mTTPrSwEtL9g/HhzMwWjxsCWw47xMuXCvCKJ8zouqkLumxJfZcwfA=
+    template:
+      - Repo `%{repository_slug}` *%{result}* build (<%{build_url}|#%{build_number}>)
+        for commit (<%{compare_url}|%{commit}>) on branch `%{branch}`.
+      - Commit message commit_message *%{commit_message}*
+      - 'Execution time: *%{duration}*'
+      - 'Message: %{message}'
